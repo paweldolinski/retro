@@ -3,7 +3,7 @@ import Separator from "./Separator";
 import Line from "./Line";
 const Contact = () => {
   return (
-    <section className="contact">
+    <section className="contact" id="contact">
       <div className="container">
         <div className="contact__box box">
           <div className="contact__box title">

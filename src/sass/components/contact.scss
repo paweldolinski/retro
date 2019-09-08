@@ -17,6 +17,10 @@
         width: 400px;
         margin-bottom: 70px;
 
+        @media (max-width:600px) {
+            width: 330px;
+        }
+
         input,
         textarea,
         button {
@@ -29,6 +33,7 @@
         input,
         textarea {
             padding: 10px;
+            box-sizing: border-box;
         }
 
         textarea {
@@ -50,6 +55,10 @@
 
     &__icon {
         width: 80px;
+
+        @media (max-width:500px) {
+            width: 50px;
+        }
     }
 
     .line {
