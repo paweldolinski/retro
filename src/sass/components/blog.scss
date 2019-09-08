@@ -1,0 +1,47 @@
+.blog {
+    background: url(../../assets/img/brighter-bc.png);
+    color: #38353e;
+
+    &__item {
+        display: flex;
+        justify-content: space-between;
+        margin: 15px auto;
+
+    }
+
+    &__item-img {
+        width: 30%;
+        height: 250px;
+        background: #e3dfd7;
+        border: solid white 2px;
+        box-shadow: 0 0 1px 1px #b7b4b2;
+    }
+
+    &__item-text {
+        width: 65%;
+    }
+
+    &__item-title {
+        h2 {
+            font-family: 'Roboto-Bold'
+        }
+
+        p {
+            font-family: 'Oswalt-Regular', sans-serif
+        }
+
+        .line {
+            margin: 10px 0;
+        }
+    }
+
+    &__item-article {
+        font-family: 'Oswald-Regular';
+        line-height: 22px;
+    }
+
+    &__btn {
+        font-family: 'Oswald-Bold';
+        margin-top: 20px;
+    }
+}

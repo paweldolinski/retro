@@ -1,0 +1,38 @@
+.nav {
+    width: 100%;
+    display: flex;
+    box-shadow: 0px 0px 3px grey;
+    background: url(../../assets/img/blue-bc.png);
+    position: relative;
+    color: #f9ebd9;
+    height: 132px;
+
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 0;
+        height: 10px;
+        width: 100%;
+        border-top: dotted gray 1px;
+        opacity: 0.5;
+    }
+
+    &__list {
+        margin: auto;
+        display: flex;
+        align-items: center;
+    }
+
+    &__item {
+        display: inline-block;
+        padding: 0px 40px;
+    }
+
+    &__item--logo {
+        width: 150px;
+        height: 150px;
+        display: inline-block;
+        z-index: 10;
+    }
+}

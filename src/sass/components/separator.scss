@@ -1,0 +1,35 @@
+.separator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-size: 22px;
+
+    p {
+        line-height: 22px;
+    }
+
+    &:after {
+        content: '';
+        height: 2px;
+        background: #3a3a3a;
+        position: absolute;
+        top: 50%;
+        left: 48px;
+        width: 50px;
+        transform: translateY(-50%);
+        margin-right: 10px;
+    }
+
+    &:before {
+        content: '';
+        height: 2px;
+        background: #3a3a3a;
+        position: absolute;
+        top: 50%;
+        right: 48px;
+        width: 50px;
+        transform: translateY(-50%);
+        margin-left: 10px;
+    }
+}

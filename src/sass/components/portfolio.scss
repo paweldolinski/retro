@@ -1,0 +1,99 @@
+.portfolio {
+    background: url(../../assets/img/red-bc.png);
+    color: #38353e;
+
+    &__filters {
+        display: flex;
+        align-self: baseline;
+        margin-left: 5px;
+        margin-bottom: 21px;
+
+        p {
+            margin-right: 20px;
+            font-family: 'Roboto-Regular'
+        }
+    }
+
+    &__filters-list {
+        display: flex;
+
+        li {
+            margin-right: 20px;
+            background: #fbfaf6;
+            padding: 5px 4px 5px 2px;
+            display: flex;
+            position: relative;
+            border-radius: 2px;
+            font-family: 'Roboto-Bold';
+            font-size: 13px;
+
+            &:before {
+                content: '';
+                display: block;
+                width: 0;
+                height: 0;
+                border-top: 12px solid transparent;
+                border-bottom: 12px solid transparent;
+                border-right: 13px solid #fbfaf6;
+                position: absolute;
+                top: 50%;
+                margin-top: -12px;
+                right: 100%;
+                z-index: 2;
+            }
+
+            span {
+                margin-right: 5px;
+                display: flex;
+                align-items: center;
+            }
+        }
+
+    }
+
+    &__portfolio {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center
+    }
+
+    &__portfolio-item {
+        width: 23%;
+        height: 240px;
+        background: #fbfaf6;
+        margin: 5px;
+        padding: 5px;
+    }
+
+    &__image {
+        height: 100%;
+        width: 100%;
+        background: gray;
+    }
+
+    &__caption {
+        position: relative;
+        height: 70px;
+        display: flex;
+        align-items: flex-end;
+        font-family: 'Roboto-Bold', serif;
+
+        p {
+            margin-bottom: 10px;
+            margin-top: 31px;
+        }
+    }
+
+    &__caption-icon {
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%)
+    }
+
+    &__btn {
+        font-family: 'Oswald-Bold';
+        margin-top: 20px;
+    }
+}
