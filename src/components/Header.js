@@ -26,7 +26,6 @@ class Header extends Component {
         isScrolled: false
       });
     }
-    console.log(this.state.isScrolled);
   };
   componentDidMount() {
     window.addEventListener("scroll", this.scrollHandler);
