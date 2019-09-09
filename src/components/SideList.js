@@ -6,7 +6,7 @@ const SideList = props => {
     <nav className="side-list">
       <AnchorLink href="#top">
         <div className="side-list__logo">
-          <img src={require("../assets/img/logo.png")} />
+          <img src={require("../assets/img/logo.png")} alt="logo side list" />
         </div>
       </AnchorLink>
       <ul>

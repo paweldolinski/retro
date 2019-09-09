@@ -19,7 +19,7 @@ const Nav = props => {
                 : "nav__item--logo"
             }
           >
-            <img src={require("../assets/img/logo.png")} />
+            <img src={require("../assets/img/logo.png")} alt="logo" />
           </li>
         </AnchorLink>
         <AnchorLink offset="70" href="#my-blog">

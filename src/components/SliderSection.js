@@ -28,19 +28,19 @@ class SliderSection extends Component {
                 <div className="sliderSection__slider-item">
                   <img
                     src={require("../assets/img/slider/img1.png")}
-                    alt="slider image amplifier"
+                    alt="slider amplifier"
                   />
                 </div>
                 <div className="sliderSection__slider-item">
                   <img
                     src={require("../assets/img/slider/img2.png")}
-                    alt="slider image analogue"
+                    alt="slider analogue"
                   />
                 </div>
                 <div className="sliderSection__slider-item">
                   <img
                     src={require("../assets/img/slider/img3.png")}
-                    alt="slider image music"
+                    alt="slider music"
                   />
                 </div>
               </Slider>
