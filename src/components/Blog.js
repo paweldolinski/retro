@@ -4,7 +4,7 @@ import Line from "./Line";
 
 const Blog = () => {
   return (
-    <section className="blog">
+    <section className="blog" id="my-blog">
       <div className="container">
         <div className="blog__box box">
           <div className="blog__box title">

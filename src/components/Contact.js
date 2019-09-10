@@ -3,7 +3,7 @@ import Separator from "./Separator";
 import Line from "./Line";
 const Contact = () => {
   return (
-    <section className="contact">
+    <section className="contact" id="contact">
       <div className="container">
         <div className="contact__box box">
           <div className="contact__box title">
@@ -26,19 +26,34 @@ const Contact = () => {
           <Line />
           <div className="contact__icons-wrapper">
             <div className="contact__icon">
-              <img src={require("../assets/img/contact-icons/twitter.png")} />
+              <img
+                src={require("../assets/img/contact-icons/twitter.png")}
+                alt="/"
+              />
             </div>
             <div className="contact__icon">
-              <img src={require("../assets/img/contact-icons/facebook.png")} />
+              <img
+                src={require("../assets/img/contact-icons/facebook.png")}
+                alt="/"
+              />
             </div>
             <div className="contact__icon">
-              <img src={require("../assets/img/contact-icons/google.png")} />
+              <img
+                src={require("../assets/img/contact-icons/google.png")}
+                alt="/"
+              />
             </div>
             <div className="contact__icon">
-              <img src={require("../assets/img/contact-icons/media_10.png")} />
+              <img
+                src={require("../assets/img/contact-icons/media_10.png")}
+                alt="/"
+              />
             </div>
             <div className="contact__icon">
-              <img src={require("../assets/img/contact-icons/linkedin.png")} />
+              <img
+                src={require("../assets/img/contact-icons/linkedin.png")}
+                alt="/"
+              />
             </div>
           </div>
         </div>

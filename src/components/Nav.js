@@ -1,27 +1,33 @@
 import React from "react";
+import AnchorLink from "react-anchor-link-smooth-scroll";
 
-const Nav = () => {
+const Nav = props => {
   return (
-    <nav className="nav">
-      <ul className="nav__list">
-        <li className="nav__item">
-          <a href="">ABOUT ME</a>
-        </li>
-        <li className="nav__item">
-          <a href="">PORTFOLIO</a>
-        </li>
-        <li className="nav__item--logo">
-          <a href="">
-            <img src={require("../assets/img/logo.png")} />
-          </a>
-        </li>
-
-        <li className="nav__item">
-          <a href="">MY BLOG</a>
-        </li>
-        <li className="nav__item">
-          <a href="">CONTACT ME</a>
-        </li>
+    <nav className={props.isScrolled ? "nav nav-height" : "nav"}>
+      <ul className={props.isScrolled ? "nav__list list-height" : "nav__list"}>
+        <AnchorLink offset="70" href="#about-me">
+          <li className="nav__item">ABOUT ME</li>
+        </AnchorLink>
+        <AnchorLink offset="70" href="#portfolio">
+          <li className="nav__item">PORTFOLIO</li>
+        </AnchorLink>
+        <AnchorLink offset="70" href="#top">
+          <li
+            className={
+              props.isScrolled
+                ? "nav__item--logo scale-down"
+                : "nav__item--logo"
+            }
+          >
+            <img src={require("../assets/img/logo.png")} alt="logo" />
+          </li>
+        </AnchorLink>
+        <AnchorLink offset="70" href="#my-blog">
+          <li className="nav__item">MY BLOG</li>
+        </AnchorLink>
+        <AnchorLink offset="70" href="#contact">
+          <li className="nav__item">CONTACT ME</li>
+        </AnchorLink>
       </ul>
     </nav>
   );

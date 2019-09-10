@@ -7,5 +7,4 @@ const Separator = () => {
     </div>
   );
 };
-
 export default Separator;

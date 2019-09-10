@@ -1,0 +1,50 @@
+.side-list {
+    position: fixed;
+    left: -20px;
+    top: 0;
+    width: 70vw;
+    height: 100vh;
+    background: white;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+    background: url(../../assets/img/blue-bc.png);
+    color: #f9ebd9;
+    transform: translateX(-301px);
+    transition: 0.7s cubic-bezier(.92, -0.29, .15, 1.44);
+
+    &.open {
+        transform: translateX(0);
+        transition: 0.7s cubic-bezier(.92, -0.29, .15, 1.44)
+    }
+
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        right: 0;
+        height: 100%;
+        width: 10px;
+        border-left: dotted gray 1px;
+        opacity: 0.5;
+    }
+
+    &__logo {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 60px;
+
+    }
+
+    li {
+        padding: 10px;
+        margin: 10px 0;
+
+        &:hover {
+            color: black
+        }
+    }
+}
