@@ -30,7 +30,7 @@
         height: 10px;
         width: 100%;
         border-top: dotted gray 1px;
-        opacity: 0.5;
+        opacity: 10s;
     }
 
     &__list {
@@ -38,11 +38,11 @@
         display: flex;
         align-items: center;
         transition: 0.5s;
+        height: 152px;
 
         &.list-height {
             height: 105px;
             transition: 0.5s;
-            ;
         }
     }
 
