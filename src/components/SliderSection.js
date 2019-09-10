@@ -8,7 +8,7 @@ class SliderSection extends Component {
   }
   render() {
     return (
-      <section className="sliderSection">
+      <section className="sliderSection section">
         <div className="container">
           <div className="sliderSection__box">
             <img

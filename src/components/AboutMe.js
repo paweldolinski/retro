@@ -4,7 +4,7 @@ import Line from "./Line";
 
 const AboutMe = () => {
   return (
-    <section className="about" id="about-me">
+    <section className="about section" id="about-me">
       <div className="container">
         <div className="about__wrapper">
           <div className="about__box box">

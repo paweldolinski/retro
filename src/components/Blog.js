@@ -4,7 +4,7 @@ import Line from "./Line";
 
 const Blog = () => {
   return (
-    <section className="blog" id="my-blog">
+    <section className="blog section" id="my-blog">
       <div className="container">
         <div className="blog__box box">
           <div className="blog__box title">
@@ -87,9 +87,11 @@ const Blog = () => {
             </div>
           </div>
         </div>
-        <div className="blog__btn">
-          <Line></Line>
-          <p>SHOW ALL POSTS</p>
+        <div className="blog__box box">
+          <div className="blog__btn">
+            <Line></Line>
+            <p>SHOW ALL POSTS</p>
+          </div>
         </div>
       </div>
     </section>

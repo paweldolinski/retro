@@ -5,7 +5,7 @@ import PortfolioItem from "./PortfolioItem";
 
 const Portfolio = () => {
   return (
-    <section className="portfolio" id="portfolio">
+    <section className="portfolio section" id="portfolio">
       <div className="container">
         <div className="portfolio__box box">
           <div className="portfolio__title title">
