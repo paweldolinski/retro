@@ -1,6 +1,6 @@
 .side-list {
     position: fixed;
-    left: 0;
+    left: -20px;
     top: 0;
     width: 70vw;
     height: 100vh;
@@ -13,6 +13,13 @@
     z-index: 200;
     background: url(../../assets/img/blue-bc.png);
     color: #f9ebd9;
+    transform: translateX(-301px);
+    transition: 0.7s cubic-bezier(.92, -0.29, .15, 1.44);
+
+    &.open {
+        transform: translateX(0);
+        transition: 0.7s cubic-bezier(.92, -0.29, .15, 1.44)
+    }
 
     &:after {
         content: '';

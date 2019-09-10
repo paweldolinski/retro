@@ -1,9 +1,10 @@
 .toggle-button {
     position: fixed;
-    top: 10px;
-    left: 20px;
+    top: 23px;
+    left: 28px;
     z-index: 300;
     display: none;
+    overflow: hidden;
 
     @media(max-width:1000px) {
         display: block;

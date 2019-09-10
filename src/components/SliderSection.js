@@ -56,5 +56,4 @@ class SliderSection extends Component {
     );
   }
 }
-
 export default SliderSection;

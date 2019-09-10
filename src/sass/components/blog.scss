@@ -2,21 +2,17 @@
     background: url(../../assets/img/brighter-bc.png);
     color: #38353e;
 
-
-
     &__item {
         display: flex;
         justify-content: space-around;
         margin: 15px auto;
 
         @media (max-width:600px) {
-            flex-direction: column-reverse;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            margin-bottom: 20px
         }
-
-
-
     }
 
     &__item-img {
@@ -31,10 +27,9 @@
         }
 
         @media (max-width:600px) {
-            width: 66%
+            width: 66%;
+            margin-bottom: 7px;
         }
-
-
     }
 
     &__item-text {
@@ -48,7 +43,6 @@
             @media (max-width:600px) {
                 font-size: 17px
             }
-
         }
 
         p {

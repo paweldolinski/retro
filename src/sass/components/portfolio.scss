@@ -15,6 +15,7 @@
             @media (max-width:700px) {
                 flex-wrap: wrap;
                 font-size: 12px;
+                min-width: 48px;
             }
         }
     }
@@ -34,6 +35,8 @@
             display: flex;
             position: relative;
             border-radius: 2px;
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
             font-family: 'Roboto-Bold';
             font-size: 13px;
 
@@ -64,7 +67,6 @@
                 align-items: center;
             }
         }
-
     }
 
     &__portfolio {
@@ -84,8 +86,6 @@
         @media (max-width:1000px) {
             width: 20%
         }
-
-
 
         @media (max-width:900px) {
             width: 40%

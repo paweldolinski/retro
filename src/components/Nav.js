@@ -3,8 +3,8 @@ import AnchorLink from "react-anchor-link-smooth-scroll";
 
 const Nav = props => {
   return (
-    <nav className={props.isScrolled ? "nav active" : "nav"}>
-      <ul className="nav__list">
+    <nav className={props.isScrolled ? "nav nav-height" : "nav"}>
+      <ul className={props.isScrolled ? "nav__list list-height" : "nav__list"}>
         <AnchorLink offset="70" href="#about-me">
           <li className="nav__item">ABOUT ME</li>
         </AnchorLink>

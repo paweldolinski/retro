@@ -3,7 +3,7 @@ import AnchorLink from "react-anchor-link-smooth-scroll";
 
 const SideList = props => {
   return (
-    <nav className="side-list">
+    <nav className={props.sideListOpen ? "side-list open" : "side-list"}>
       <AnchorLink href="#top">
         <div className="side-list__logo">
           <img src={require("../assets/img/logo.png")} alt="logo side list" />

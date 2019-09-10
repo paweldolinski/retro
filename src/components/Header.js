@@ -10,7 +10,6 @@ class Header extends Component {
   };
 
   sideListToggleHandler = () => {
-    console.log("elo elo");
     this.setState(prevState => {
       return { sideListOpen: !prevState.sideListOpen };
     });
@@ -32,13 +31,6 @@ class Header extends Component {
   }
 
   render() {
-    let sideList;
-
-    if (this.state.sideListOpen) {
-      sideList = (
-        <SideList sideListToggleHandler={this.sideListToggleHandler}></SideList>
-      );
-    }
     return (
       <header>
         <div
@@ -50,7 +42,10 @@ class Header extends Component {
           sideListOpen={this.state.sideListOpen}
         ></ToggleButton>
         <Nav isScrolled={this.state.isScrolled}></Nav>
-        {sideList}
+        <SideList
+          sideListToggleHandler={this.sideListToggleHandler}
+          sideListOpen={this.state.sideListOpen}
+        ></SideList>
       </header>
     );
   }
