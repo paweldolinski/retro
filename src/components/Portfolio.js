@@ -2,33 +2,35 @@ import React, { Component } from "react";
 import Separator from "./Separator";
 import Line from "./Line";
 import PortfolioItem from "./PortfolioItem";
-import Test from "./Test";
 
 class Portfolio extends Component {
   state = {
     search: "",
     tag: "",
-    filteredImages: ""
+    filteredImages: "",
+    value: ""
   };
   clickHandler = e => {
-    console.log(e.target.getAttribute("data-value"));
-
-    console.log(this.state.search);
+    this.setState(prevState => {
+      const valuee = e.target.getAttribute("data-value");
+      return { value: !prevState.valuee };
+    });
   };
   componentDidMount() {
     fetch("https://pixabay.com/api/?key=8421285-61e0ded0b62b92cbc0aaeafbc&q")
       .then(res => res.json())
       .then(data =>
         this.setState({
-          search: data
+          search: data.hits
         })
       );
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (this.state.search > prevState.search) {
-      const data = this.state.search.hits;
+      const data = this.state.search;
       console.log(data);
+      console.log(this.state.value);
 
       const filteredImages = data.filter(item => item.tags.includes("snail"));
       console.log(filteredImages);
@@ -76,46 +78,11 @@ class Portfolio extends Component {
                 </li>
               </ul>
             </div>
-            <div className="portfolio__portfolio">
-              <PortfolioItem
-                icon={require("../assets/img/portfolio-icons/icons_542.png")}
-                title="GALLERIES ARE FUNNY"
-                search={this.state.search}
-              ></PortfolioItem>
-              <PortfolioItem
-                icon={require("../assets/img/portfolio-icons/icons_548.png")}
-                title="A VIMEO REEL"
-              ></PortfolioItem>
-              <PortfolioItem
-                icon={require("../assets/img/portfolio-icons/icons_551.png")}
-                title="LOVE FOR OLD CAMERAS"
-              ></PortfolioItem>
-              <PortfolioItem
-                icon={require("../assets/img/portfolio-icons/icons_545.png")}
-                title="DETAILED PROJECT PAGE"
-              ></PortfolioItem>
-              <PortfolioItem
-                icon={require("../assets/img/portfolio-icons/icons_548.png")}
-                title="YOUTUBE VIDEO"
-              ></PortfolioItem>
-              <PortfolioItem
-                icon={require("../assets/img/portfolio-icons/icons_645.png")}
-                title="ANOTHER EXTERNAL LINK"
-              ></PortfolioItem>
-              <PortfolioItem
-                icon={require("../assets/img/portfolio-icons/icons_648.png")}
-                title="LIGHTBOX IMAGE"
-              ></PortfolioItem>
-              <PortfolioItem
-                icon={require("../assets/img/portfolio-icons/icons_551.png")}
-                title="THE DARK TEMPEST"
-              ></PortfolioItem>
-            </div>
-            <Line></Line>
-            <p className="portfolio__btn">BROWSE ALL</p>
           </div>
+          <Line></Line>
+          <p className="portfolio__btn">BROWSE ALL</p>
         </div>
-        <Test search={this.state.search}></Test>
+        <PortfolioItem search={this.state.search}></PortfolioItem>
       </section>
     );
   }

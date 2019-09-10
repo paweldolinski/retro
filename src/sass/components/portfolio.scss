@@ -104,6 +104,11 @@
         height: 100%;
         width: 100%;
         background: gray;
+
+        img {
+            width: 80%;
+            margin: auto
+        }
     }
 
     &__caption {
