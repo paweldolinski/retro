@@ -6,7 +6,21 @@ class SliderSection extends Component {
     super(props);
     this.state = {};
   }
+  next = () => {
+    this.slider.slickNext();
+  };
+  previous = () => {
+    this.slider.slickPrev();
+  };
+
   render() {
+    const settings = {
+      dots: false,
+      arrows: false,
+      infinite: true,
+      slidesToShow: 1,
+      slidesToScroll: 1
+    };
     return (
       <section className="sliderSection section">
         <div className="container">
@@ -24,7 +38,7 @@ class SliderSection extends Component {
           </div>
           <div className="sliderSection__box">
             <div className="sliderSection__slider-wrapper">
-              <Slider>
+              <Slider ref={c => (this.slider = c)} {...settings}>
                 <div className="sliderSection__slider-item">
                   <img
                     src={require("../assets/img/slider/img1.png")}
@@ -44,6 +58,15 @@ class SliderSection extends Component {
                   />
                 </div>
               </Slider>
+              <div
+                className="sliderSection__prev-button"
+                onClick={this.previous}
+              >
+                <img src={require("../assets/img/left-thin-chevron.png")} />
+              </div>
+              <div className="sliderSection__next-button" onClick={this.next}>
+                <img src={require("../assets/img/right-thin-chevron.png")} />
+              </div>
               <h2>KODAK CAMERA</h2>
             </div>
           </div>

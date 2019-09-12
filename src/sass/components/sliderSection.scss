@@ -30,14 +30,47 @@
         color: #383a3c;
         text-align: center;
         max-width: 830px;
+        position: relative;
+        overflow: hidden;
 
 
         @media (max-width:900px) {
-            width: 400px
+            width: 400px;
         }
 
         @media (max-width:460px) {
-            width: 270px
+            width: 270px;
+        }
+    }
+
+    &__next-button,
+    &__prev-button {
+        width: 30px;
+        height: 30px;
+        background: #fff;
+        border-radius: 50%;
+        position: absolute;
+        display: flex;
+        align-items: center;
+    }
+
+    &__next-button {
+        right: -2px;
+        top: 40%;
+
+        img {
+            width: 55%;
+            margin-left: 3px;
+        }
+    }
+
+    &__prev-button {
+        left: -2px;
+        top: 40%;
+
+        img {
+            width: 55%;
+            margin-left: 8px;
         }
     }
 }
@@ -46,18 +79,4 @@
     img {
         width: 100%;
     }
-}
-
-.slick-prev:before,
-.slick-next:before {
-    font-size: 35px;
-}
-
-.slick-next {
-    right: 5px;
-}
-
-.slick-prev {
-    left: -9px;
-    z-index: 100;
 }
