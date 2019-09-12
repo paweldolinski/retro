@@ -2,10 +2,6 @@ import React, { Component } from "react";
 import Slider from "react-slick";
 
 class SliderSection extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
   next = () => {
     this.slider.slickNext();
   };
@@ -22,7 +18,13 @@ class SliderSection extends Component {
       slidesToScroll: 1
     };
     return (
-      <section className="sliderSection section">
+      <section
+        className={
+          this.props.isScrolled
+            ? "slideSection section transform"
+            : "slideSection section"
+        }
+      >
         <div className="container">
           <div className="sliderSection__box">
             <img

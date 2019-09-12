@@ -5,8 +5,7 @@ import SideList from "./SideList";
 
 class Header extends Component {
   state = {
-    sideListOpen: false,
-    isScrolled: false
+    sideListOpen: false
   };
 
   sideListToggleHandler = () => {
@@ -15,36 +14,24 @@ class Header extends Component {
     });
   };
 
-  scrollHandler = e => {
-    if (window.scrollY > 100) {
-      this.setState({
-        isScrolled: true
-      });
-    } else {
-      this.setState({
-        isScrolled: false
-      });
-    }
-  };
-  componentDidMount() {
-    window.addEventListener("scroll", this.scrollHandler);
-  }
-
   render() {
+    const { sideListOpen } = this.state;
+
     return (
       <header>
+        {console.log(this.props.isScrolled)}
         <div
-          className={this.state.sideListOpen ? "back-drop" : null}
+          className={sideListOpen ? "back-drop" : null}
           onClick={this.sideListToggleHandler}
         ></div>
         <ToggleButton
           click={this.sideListToggleHandler}
-          sideListOpen={this.state.sideListOpen}
+          sideListOpen={sideListOpen}
         ></ToggleButton>
-        <Nav isScrolled={this.state.isScrolled}></Nav>
+        <Nav isScrolled={this.props.isScrolled}></Nav>
         <SideList
           sideListToggleHandler={this.sideListToggleHandler}
-          sideListOpen={this.state.sideListOpen}
+          sideListOpen={sideListOpen}
         ></SideList>
       </header>
     );
