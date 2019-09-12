@@ -19,7 +19,6 @@ class Header extends Component {
 
     return (
       <header>
-        {console.log(this.props.isScrolled)}
         <div
           className={sideListOpen ? "back-drop" : null}
           onClick={this.sideListToggleHandler}
