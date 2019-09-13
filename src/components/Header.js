@@ -10,7 +10,6 @@ class Header extends Component {
   };
 
   sideListToggleHandler = () => {
-    console.log("elo elo");
     this.setState(prevState => {
       return { sideListOpen: !prevState.sideListOpen };
     });
@@ -26,7 +25,6 @@ class Header extends Component {
         isScrolled: false
       });
     }
-    console.log(this.state.isScrolled);
   };
   componentDidMount() {
     window.addEventListener("scroll", this.scrollHandler);

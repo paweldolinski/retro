@@ -10,31 +10,35 @@ class Portfolio extends Component {
     filteredImages: "",
     value: ""
   };
-  clickHandler = e => {
-    this.setState(prevState => {
-      const valuee = e.target.getAttribute("data-value");
-      return { value: !prevState.valuee };
-    });
+  clickHandler = async e => {
+    const value = e.target.getAttribute("data-value");
+    await this.setState(
+      {
+        value
+      },
+      () => {
+        this.setState({
+          filteredImages: this.state.search.filter(item =>
+            item.tags.includes(this.state.value)
+          )
+        });
+        console.log(this.state.filteredImages);
+        console.log(this.state.search);
+      }
+    );
   };
+
   componentDidMount() {
-    fetch("https://pixabay.com/api/?key=8421285-61e0ded0b62b92cbc0aaeafbc&q")
+    fetch(
+      "https://pixabay.com/api/?key=8421285-61e0ded0b62b92cbc0aaeafbc&per_page=40&q"
+    )
       .then(res => res.json())
       .then(data =>
         this.setState({
-          search: data.hits
+          search: data.hits,
+          filteredImages: data.hits
         })
       );
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (this.state.search > prevState.search) {
-      const data = this.state.search;
-      console.log(data);
-      console.log(this.state.value);
-
-      const filteredImages = data.filter(item => item.tags.includes("snail"));
-      console.log(filteredImages);
-    }
   }
 
   render() {
@@ -51,15 +55,18 @@ class Portfolio extends Component {
           <div className="potfolio__box box">
             <div className="portfolio__filters">
               <p>Filter by</p>
-              <ul className="portfolio__filters-list">
-                <li data-value="money" onClick={this.clickHandler}>
-                  <span>&#8226;</span>money
+              <ul
+                className="portfolio__filters-list"
+                onClick={this.clickHandler}
+              >
+                <li data-value="sea">
+                  <span>&#8226;</span>sea
                 </li>
-                <li>
-                  <span>&#8226;</span>logo
+                <li data-value="nature">
+                  <span>&#8226;</span>nature
                 </li>
-                <li>
-                  <span>&#8226;</span>photography
+                <li data-value="all">
+                  <span>&#8226;</span>all
                 </li>
                 <li>
                   <span>&#8226;</span>poster
@@ -79,10 +86,16 @@ class Portfolio extends Component {
               </ul>
             </div>
           </div>
-          <Line></Line>
-          <p className="portfolio__btn">BROWSE ALL</p>
+          <PortfolioItem
+            filteredImages={this.state.filteredImages}
+            search={this.state.search}
+            value={this.state.value}
+          ></PortfolioItem>
+          <div className="potfolio__box box">
+            <Line></Line>
+            <p className="portfolio__btn">BROWSE ALL</p>
+          </div>
         </div>
-        <PortfolioItem search={this.state.search}></PortfolioItem>
       </section>
     );
   }
