@@ -5,40 +5,50 @@ import PortfolioItem from "./PortfolioItem";
 
 class Portfolio extends Component {
   state = {
-    search: "",
-    tag: "",
-    filteredImages: "",
-    value: ""
+    data: "",
+    category: "music",
+    perPage: 8,
+    apiURL: "https://pixabay.com/api",
+    apiKEY: "8421285-61e0ded0b62b92cbc0aaeafbc"
   };
   clickHandler = async e => {
-    const value = e.target.getAttribute("data-value");
-    await this.setState(
-      {
-        value
-      },
-      () => {
-        this.setState({
-          filteredImages: this.state.search.filter(item =>
-            item.tags.includes(this.state.value)
-          )
-        });
-        console.log(this.state.filteredImages);
-        console.log(this.state.search);
-      }
-    );
+    const category = e.target.getAttribute("data-value");
+    await this.setState({
+      category,
+      perPage: 8
+    });
+    console.log(this.state.data);
+  };
+  closeLightbox = () => {
+    this.state.isOpen = true;
   };
 
-  componentDidMount() {
+  getData = () => {
+    const { apiKEY, apiURL } = this.state;
     fetch(
-      "https://pixabay.com/api/?key=8421285-61e0ded0b62b92cbc0aaeafbc&per_page=40&q"
+      `${apiURL}/?key=${apiKEY}&q=retro&image_type=photo&per_page=${this.state.perPage}&category=${this.state.category}`
     )
       .then(res => res.json())
       .then(data =>
         this.setState({
-          search: data.hits,
-          filteredImages: data.hits
+          data: data.hits
         })
-      );
+      )
+      .catch(err => console.log(err));
+  };
+  getMoreResults = () => {
+    this.setState({
+      perPage: this.state.perPage + 8
+    });
+  };
+
+  componentDidMount() {
+    this.getData();
+  }
+  componentDidUpdate(prevState) {
+    if (this.state.category !== prevState.category) {
+      this.getData();
+    }
   }
 
   render() {
@@ -59,41 +69,43 @@ class Portfolio extends Component {
                 className="portfolio__filters-list"
                 onClick={this.clickHandler}
               >
-                <li data-value="sea">
-                  <span>&#8226;</span>sea
+                <li data-value="fashion">
+                  <span>&#8226;</span>fashion
                 </li>
                 <li data-value="nature">
                   <span>&#8226;</span>nature
                 </li>
-                <li data-value="all">
-                  <span>&#8226;</span>all
+                <li data-value="backgrounds">
+                  <span>&#8226;</span>backgrounds
                 </li>
-                <li>
-                  <span>&#8226;</span>poster
+                <li data-value="science">
+                  <span>&#8226;</span>science
                 </li>
-                <li>
-                  <span>&#8226;</span>resources
+                <li data-value="education">
+                  <span>&#8226;</span>education
                 </li>
-                <li>
-                  <span>&#8226;</span>retro
+                <li data-value="people">
+                  <span>&#8226;</span>people
                 </li>
-                <li>
-                  <span>&#8226;</span>t-shirts
+                <li data-value="feelings">
+                  <span>&#8226;</span>feelings
                 </li>
-                <li>
-                  <span>&#8226;</span>video
+                <li data-value="backgrounds">
+                  <span>&#8226;</span>backgrounds
                 </li>
               </ul>
             </div>
           </div>
           <PortfolioItem
             filteredImages={this.state.filteredImages}
-            search={this.state.search}
+            data={this.state.data}
             value={this.state.value}
           ></PortfolioItem>
           <div className="potfolio__box box">
             <Line></Line>
-            <p className="portfolio__btn">BROWSE ALL</p>
+            <p className="portfolio__btn" onClick={this.getMoreResults}>
+              BROWSE MORE
+            </p>
           </div>
         </div>
       </section>

@@ -67,6 +67,13 @@
 
     }
 
+    &__filters-list li,
+    &__portfolio-item img,
+    &__close-icon,
+    &__btn {
+        cursor: pointer;
+    }
+
     &__portfolio {
         display: flex;
         flex-wrap: wrap;
@@ -102,10 +109,9 @@
     }
 
     &__image {
-        height: 100%;
-        width: 100%;
-        background: gray;
+
         overflow: hidden;
+        min-height: 180px;
 
         img {
             width: 100%;
@@ -148,4 +154,18 @@
         font-family: 'Oswald-Bold';
         margin-top: 20px;
     }
+
+    &__close-icon {
+        position: absolute;
+        width: 17px;
+        height: 17px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        left: 10px;
+        top: 10px;
+        background: white;
+
+    }
+
 }
