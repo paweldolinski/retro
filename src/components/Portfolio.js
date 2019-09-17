@@ -1,89 +1,99 @@
-import React from "react";
+import React, { Component } from "react";
 import Separator from "./Separator";
-import Line from "./Line";
 import PortfolioItem from "./PortfolioItem";
 
-const Portfolio = () => {
-  return (
-    <section className="portfolio section" id="portfolio">
-      <div className="container">
-        <div className="portfolio__box box">
-          <div className="portfolio__title title">
-            <h1>PORTFOLIO</h1>
-            <Separator></Separator>
-            <p>SIMPLICITY IS THE ULTIMATE SOPHISTICATION</p>
+class Portfolio extends Component {
+  state = {
+    data: [],
+    filteredData: [],
+    category: "music",
+    apiURL: "https://pixabay.com/api",
+    apiKEY: "8421285-61e0ded0b62b92cbc0aaeafbc",
+    moreItems: 8
+  };
+
+  clickHandler = async e => {
+    const category = e.target.getAttribute("data-value");
+    await this.setState({
+      category,
+      filteredData: this.state.data.filter(image =>
+        image.tags.includes(category)
+      )
+    });
+  };
+
+  getData = () => {
+    const { apiKEY, apiURL } = this.state;
+
+    fetch(
+      `${apiURL}/?key=${apiKEY}&q=retro&image_type=photo&per_page=200&category=${this.state.category}`
+    )
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          data: data.hits,
+          filteredData: data.hits
+        });
+      })
+      .catch(err => console.log(err));
+  };
+
+  componentDidMount() {
+    this.getData();
+  }
+
+  render() {
+    return (
+      <section className="portfolio" id="portfolio">
+        <div className="container">
+          <div className="portfolio__box box">
+            <div className="portfolio__title title">
+              <h1>PORTFOLIO</h1>
+              <Separator></Separator>
+              <p>SIMPLICITY IS THE ULTIMATE SOPHISTICATION</p>
+            </div>
           </div>
+          <div className="potfolio__box box">
+            <div className="portfolio__filters">
+              <p>Filter by</p>
+              <ul
+                className="portfolio__filters-list"
+                onClick={this.clickHandler}
+              >
+                <li data-value="music">
+                  <span>&#8226;</span>music
+                </li>
+                <li data-value="radio">
+                  <span>&#8226;</span>radio
+                </li>
+                <li data-value="old">
+                  <span>&#8226;</span>old
+                </li>
+                <li data-value="vinyl">
+                  <span>&#8226;</span>vinyl
+                </li>
+                <li data-value="education">
+                  <span>&#8226;</span>education
+                </li>
+                <li data-value="people">
+                  <span>&#8226;</span>people
+                </li>
+                <li data-value="feelings">
+                  <span>&#8226;</span>feelings
+                </li>
+              </ul>
+            </div>
+          </div>
+          <PortfolioItem
+            filteredData={this.state.filteredData}
+            data={this.state.data}
+            value={this.state.value}
+            moreItems={this.state.moreItems}
+          ></PortfolioItem>
         </div>
-        <div className="potfolio__box box">
-          <div className="portfolio__filters">
-            <p>Filter by :</p>
-            <ul className="portfolio__filters-list">
-              <li>
-                <span>&#8226;</span>design
-              </li>
-              <li>
-                <span>&#8226;</span>logo
-              </li>
-              <li>
-                <span>&#8226;</span>photography
-              </li>
-              <li>
-                <span>&#8226;</span>poster
-              </li>
-              <li>
-                <span>&#8226;</span>resources
-              </li>
-              <li>
-                <span>&#8226;</span>retro
-              </li>
-              <li>
-                <span>&#8226;</span>t-shirts
-              </li>
-              <li>
-                <span>&#8226;</span>video
-              </li>
-            </ul>
-          </div>
-          <div className="portfolio__portfolio">
-            <PortfolioItem
-              icon={require("../assets/img/portfolio-icons/icons_542.png")}
-              title="GALLERIES ARE FUNNY"
-            ></PortfolioItem>
-            <PortfolioItem
-              icon={require("../assets/img/portfolio-icons/icons_548.png")}
-              title="A VIMEO REEL"
-            ></PortfolioItem>
-            <PortfolioItem
-              icon={require("../assets/img/portfolio-icons/icons_551.png")}
-              title="LOVE FOR OLD CAMERAS"
-            ></PortfolioItem>
-            <PortfolioItem
-              icon={require("../assets/img/portfolio-icons/icons_545.png")}
-              title="DETAILED PROJECT PAGE"
-            ></PortfolioItem>
-            <PortfolioItem
-              icon={require("../assets/img/portfolio-icons/icons_548.png")}
-              title="YOUTUBE VIDEO"
-            ></PortfolioItem>
-            <PortfolioItem
-              icon={require("../assets/img/portfolio-icons/icons_645.png")}
-              title="ANOTHER EXTERNAL LINK"
-            ></PortfolioItem>
-            <PortfolioItem
-              icon={require("../assets/img/portfolio-icons/icons_648.png")}
-              title="LIGHTBOX IMAGE"
-            ></PortfolioItem>
-            <PortfolioItem
-              icon={require("../assets/img/portfolio-icons/icons_551.png")}
-              title="THE DARK TEMPEST"
-            ></PortfolioItem>
-          </div>
-          <Line></Line>
-          <p className="portfolio__btn">BROWSE ALL</p>
-        </div>
-      </div>
-    </section>
-  );
-};
+      </section>
+    );
+  }
+}
 
 export default Portfolio;
