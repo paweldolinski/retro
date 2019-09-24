@@ -3,9 +3,6 @@ import Dialog from "@material-ui/core/Dialog";
 import BrowseMore from "./BrowseMore";
 
 class PortfolioItem extends Component {
-  constructor(props) {
-    super(props);
-  }
   state = {
     open: false,
     filteredData: [],
@@ -38,9 +35,6 @@ class PortfolioItem extends Component {
           moreItems: prev.moreItems + 4
         };
       });
-    }
-    {
-      console.log(this.state.filteredData);
     }
   };
 

@@ -64,10 +64,16 @@ class SliderSection extends Component {
                 className="sliderSection__prev-button"
                 onClick={this.previous}
               >
-                <img src={require("../assets/img/left-thin-chevron.png")} />
+                <img
+                  src={require("../assets/img/left-thin-chevron.png")}
+                  alt="previous"
+                />
               </div>
               <div className="sliderSection__next-button" onClick={this.next}>
-                <img src={require("../assets/img/right-thin-chevron.png")} />
+                <img
+                  src={require("../assets/img/right-thin-chevron.png")}
+                  alt="next"
+                />
               </div>
               <h2>KODAK CAMERA</h2>
             </div>

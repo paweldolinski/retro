@@ -71,6 +71,12 @@
         }
     }
 
+    &__filters-list,
+    &__portfolio-item,
+    &__btn {
+        cursor: pointer;
+    }
+
     &__portfolio {
         display: flex;
         flex-wrap: wrap;
@@ -156,6 +162,22 @@
 
     &__btn {
         font-family: 'Oswald-Bold';
-        margin-top: 20px;
+        margin: 20px auto;
+    }
+
+    &__close-icon {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        cursor: pointer;
+        height: 25px;
+        width: 25px;
+        background: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+
+
     }
 }

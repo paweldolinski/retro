@@ -72,14 +72,14 @@ class Portfolio extends Component {
                 <li data-value="vinyl">
                   <span>&#8226;</span>vinyl
                 </li>
-                <li data-value="education">
-                  <span>&#8226;</span>education
+                <li data-value="record">
+                  <span>&#8226;</span>record
                 </li>
-                <li data-value="people">
-                  <span>&#8226;</span>people
+                <li data-value="gramophone">
+                  <span>&#8226;</span>gramophone
                 </li>
-                <li data-value="feelings">
-                  <span>&#8226;</span>feelings
+                <li data-value="microphone">
+                  <span>&#8226;</span>microphone
                 </li>
               </ul>
             </div>
