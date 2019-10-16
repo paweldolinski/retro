@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Separator from "./Separator";
 import PortfolioItem from "./PortfolioItem";
+import BrowseMore from "./BrowseMore";
 
 class Portfolio extends Component {
   state = {
@@ -9,12 +10,12 @@ class Portfolio extends Component {
     category: "music",
     apiURL: "https://pixabay.com/api",
     apiKEY: "8421285-61e0ded0b62b92cbc0aaeafbc",
+    moreItems: 8
   };
 
   clickHandler = async e => {
 
     if (e.target.tagName === "LI") {
-
       let category = e.target.getAttribute("data-value");
 
       await this.setState({
@@ -23,7 +24,23 @@ class Portfolio extends Component {
           image.tags.includes(category)
         )
       });
+    } if (this.state.moreItems > 8) {
+      this.setState({
+        moreItems: 8
+      })
     }
+  };
+
+  getMoreResults = () => {
+    const { filteredData } = this.state
+    if (filteredData) {
+      this.setState(prev => {
+        return {
+          moreItems: prev.moreItems + 4
+        };
+      });
+    }
+    console.log(this.state.moreItems)
   };
 
   getData = () => {
@@ -96,6 +113,7 @@ class Portfolio extends Component {
             moreItems={moreItems}
           ></PortfolioItem>
         </div>
+        <BrowseMore getMoreResults={this.getMoreResults}></BrowseMore>
       </section>
     );
   }

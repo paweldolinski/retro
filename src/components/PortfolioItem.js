@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Dialog from "@material-ui/core/Dialog";
-import BrowseMore from "./BrowseMore";
 
 class PortfolioItem extends Component {
   state = {
@@ -28,17 +27,6 @@ class PortfolioItem extends Component {
     }
   };
 
-  getMoreResults = () => {
-    const { filteredData } = this.props
-    if (filteredData) {
-      this.setState(prev => {
-        return {
-          moreItems: prev.moreItems + 4
-        };
-      });
-    }
-  };
-
   limitTags = title => {
     let newTitle = [];
     newTitle = title
@@ -49,11 +37,12 @@ class PortfolioItem extends Component {
   };
 
   renderList = () => {
-    const { filteredData, moreItems } = this.state
+    // const { moreItems } = this.state
+    // // const { moreItems, filteredData } = this.props
     let renderList;
-    if (filteredData) {
-      renderList = filteredData
-        .slice(0, moreItems)
+    if (this.props.filteredData) {
+      renderList = this.props.filteredData
+        .slice(0, this.props.moreItems)
         .map(image => {
           return (
             <div className="portfolio__portfolio-item item" key={image.id}>
@@ -79,11 +68,11 @@ class PortfolioItem extends Component {
     return renderList;
   };
 
-  static getDerivedStateFromProps(props) {
-    return {
-      filteredData: props.filteredData
-    };
-  }
+  // static getDerivedStateFromProps(props) {
+  //   return {
+  //     filteredData: props.filteredData
+  //   };
+  // }
   render() {
     const { currentImg, open } = this.state
     return (
@@ -97,7 +86,6 @@ class PortfolioItem extends Component {
             <img src={currentImg} alt="" />
           </Dialog>
         </div>
-        <BrowseMore getMoreResults={this.getMoreResults}></BrowseMore>
       </div>
     );
   }
