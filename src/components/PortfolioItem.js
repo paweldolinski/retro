@@ -29,7 +29,8 @@ class PortfolioItem extends Component {
   };
 
   getMoreResults = () => {
-    if (this.props.data) {
+    const { filteredData } = this.props
+    if (filteredData) {
       this.setState(prev => {
         return {
           moreItems: prev.moreItems + 4
@@ -38,7 +39,7 @@ class PortfolioItem extends Component {
     }
   };
 
-  limitRecipeTitle = title => {
+  limitTags = title => {
     let newTitle = [];
     newTitle = title
       .split(", ")
@@ -48,10 +49,11 @@ class PortfolioItem extends Component {
   };
 
   renderList = () => {
+    const { filteredData, moreItems } = this.state
     let renderList;
-    if (this.state.filteredData) {
-      renderList = this.state.filteredData
-        .slice(0, this.state.moreItems)
+    if (filteredData) {
+      renderList = filteredData
+        .slice(0, moreItems)
         .map(image => {
           return (
             <div className="portfolio__portfolio-item item" key={image.id}>
@@ -68,7 +70,7 @@ class PortfolioItem extends Component {
                     alt={image.tags}
                   />
                 </div>
-                <p>{this.limitRecipeTitle(image.tags)}</p>
+                <p>{this.limitTags(image.tags)}</p>
               </div>
             </div>
           );
@@ -77,21 +79,22 @@ class PortfolioItem extends Component {
     return renderList;
   };
 
-  static getDerivedStateFromProps(props, state) {
+  static getDerivedStateFromProps(props) {
     return {
       filteredData: props.filteredData
     };
   }
   render() {
+    const { currentImg, open } = this.state
     return (
       <div className="portfolio__portfolio">
         {this.renderList()}
         <div className="portfolio__after-click" onClick={this.handleClose}>
-          <Dialog open={this.state.open}>
+          <Dialog open={open}>
             <div className="portfolio__close-icon" onClick={this.handleClose}>
               &times;
             </div>
-            <img src={this.state.currentImg} alt="" />
+            <img src={currentImg} alt="" />
           </Dialog>
         </div>
         <BrowseMore getMoreResults={this.getMoreResults}></BrowseMore>

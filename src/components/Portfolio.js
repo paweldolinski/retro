@@ -9,17 +9,21 @@ class Portfolio extends Component {
     category: "music",
     apiURL: "https://pixabay.com/api",
     apiKEY: "8421285-61e0ded0b62b92cbc0aaeafbc",
-    moreItems: 8
   };
 
   clickHandler = async e => {
-    const category = e.target.getAttribute("data-value");
-    await this.setState({
-      category,
-      filteredData: this.state.data.filter(image =>
-        image.tags.includes(category)
-      )
-    });
+
+    if (e.target.tagName === "LI") {
+
+      let category = e.target.getAttribute("data-value");
+
+      await this.setState({
+        category,
+        filteredData: this.state.data.filter(image =>
+          image.tags.includes(category)
+        )
+      });
+    }
   };
 
   getData = () => {
@@ -43,8 +47,9 @@ class Portfolio extends Component {
   }
 
   render() {
+    const { data, filteredData, value, moreItems } = this.state
     return (
-      <section className="portfolio" id="portfolio">
+      <section className="portfolio section" id="portfolio">
         <div className="container">
           <div className="portfolio__box box">
             <div className="portfolio__title title">
@@ -85,10 +90,10 @@ class Portfolio extends Component {
             </div>
           </div>
           <PortfolioItem
-            filteredData={this.state.filteredData}
-            data={this.state.data}
-            value={this.state.value}
-            moreItems={this.state.moreItems}
+            filteredData={filteredData}
+            data={data}
+            value={value}
+            moreItems={moreItems}
           ></PortfolioItem>
         </div>
       </section>
