@@ -6,21 +6,21 @@ const SideList = props => {
     <nav className={props.sideListOpen ? "side-list open" : "side-list"}>
       <AnchorLink href="#top">
         <div className="side-list__logo">
-          <img src={require("../assets/img/logo.png")} alt="logo side list" />
+          <img onClick={props.sideListToggleHandler} src={require("../assets/img/logo.png")} alt="logo side list" />
         </div>
       </AnchorLink>
       <ul>
         <AnchorLink href="#about-me">
-          <li onClick={props.sideListToggleHandler}>ABOUT ME</li>
+          <li onClick={props.sideListToggleHandler} >ABOUT ME</li>
         </AnchorLink>
         <AnchorLink href="#portfolio">
-          <li onClick={props.sideListToggleHandler}>PORTFOLIO</li>
+          <li onClick={props.sideListToggleHandler} >PORTFOLIO</li>
         </AnchorLink>
         <AnchorLink href="#my-blog">
-          <li onClick={props.sideListToggleHandler}>MY BLOG</li>
+          <li onClick={props.sideListToggleHandler} >MY BLOG</li>
         </AnchorLink>
         <AnchorLink href="#contact">
-          <li onClick={props.sideListToggleHandler}>CONTACT ME</li>
+          <li onClick={props.sideListToggleHandler} >CONTACT ME</li>
         </AnchorLink>
       </ul>
     </nav>

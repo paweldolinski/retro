@@ -2,29 +2,29 @@ import React, { Component } from "react";
 import Separator from "./Separator";
 import PortfolioItem from "./PortfolioItem";
 import BrowseMore from "./BrowseMore";
+import Constants from "../data/Constants";
+import TagsList from "./TagsList"
 
 class Portfolio extends Component {
   state = {
     data: [],
     filteredData: [],
-    category: "music",
-    apiURL: "https://pixabay.com/api",
-    apiKEY: "8421285-61e0ded0b62b92cbc0aaeafbc",
-    moreItems: 8
+    moreItems: 8,
+    isMoreItems: true,
+
   };
 
-  clickHandler = async e => {
+  filterData = (tag) => {
 
-    if (e.target.tagName === "LI") {
-      let category = e.target.getAttribute("data-value");
+    this.setState({
+      filteredData: this.state.data.filter(image =>
+        image.tags.includes(tag)
+      )
+    }, () => {
+      this.disabledGetMoreResults()
+    });
 
-      await this.setState({
-        category,
-        filteredData: this.state.data.filter(image =>
-          image.tags.includes(category)
-        )
-      });
-    } if (this.state.moreItems > 8) {
+    if (this.state.moreItems > 8) {
       this.setState({
         moreItems: 8
       })
@@ -38,16 +38,30 @@ class Portfolio extends Component {
         return {
           moreItems: prev.moreItems + 4
         };
+      }, () => {
+        this.disabledGetMoreResults()
       });
     }
-    console.log(this.state.moreItems)
   };
 
-  getData = () => {
-    const { apiKEY, apiURL } = this.state;
+  disabledGetMoreResults = () => {
+    const { moreItems, filteredData } = this.state
+    if (moreItems >= filteredData.length) {
+      this.setState({
+        isMoreItems: false
+      })
+    } else {
+      this.setState({
+        isMoreItems: true
+      })
+    }
+  }
 
-    fetch(
-      `${apiURL}/?key=${apiKEY}&q=retro&image_type=photo&per_page=200&category=${this.state.category}`
+  getData = async () => {
+    const { apiKEY, apiURL } = Constants
+
+    await fetch(
+      `${apiURL}/?key=${apiKEY}&q=retro&image_type=photo&per_page=200&category=music`
     )
       .then(res => res.json())
       .then(data => {
@@ -64,7 +78,7 @@ class Portfolio extends Component {
   }
 
   render() {
-    const { data, filteredData, value, moreItems } = this.state
+    const { data, filteredData, value, moreItems, isMoreItems } = this.state
     return (
       <section className="portfolio section" id="portfolio">
         <div className="container">
@@ -78,31 +92,8 @@ class Portfolio extends Component {
           <div className="potfolio__box box">
             <div className="portfolio__filters">
               <p>Filter by</p>
-              <ul
-                className="portfolio__filters-list"
-                onClick={this.clickHandler}
-              >
-                <li data-value="music">
-                  <span>&#8226;</span>music
-                </li>
-                <li data-value="radio">
-                  <span>&#8226;</span>radio
-                </li>
-                <li data-value="old">
-                  <span>&#8226;</span>old
-                </li>
-                <li data-value="vinyl">
-                  <span>&#8226;</span>vinyl
-                </li>
-                <li data-value="record">
-                  <span>&#8226;</span>record
-                </li>
-                <li data-value="gramophone">
-                  <span>&#8226;</span>gramophone
-                </li>
-                <li data-value="microphone">
-                  <span>&#8226;</span>microphone
-                </li>
+              <ul className="portfolio__filters-list">
+                <TagsList filterData={this.filterData} />
               </ul>
             </div>
           </div>
@@ -113,7 +104,7 @@ class Portfolio extends Component {
             moreItems={moreItems}
           ></PortfolioItem>
         </div>
-        <BrowseMore getMoreResults={this.getMoreResults}></BrowseMore>
+        <BrowseMore getMoreResults={this.getMoreResults} isMoreItems={isMoreItems}></BrowseMore>
       </section>
     );
   }

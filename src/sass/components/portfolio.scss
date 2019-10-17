@@ -160,6 +160,11 @@
         margin: 20px auto;
     }
 
+    &__btn-disabled {
+        color: #00000042;
+        cursor: default;
+    }
+
     &__close-icon {
         position: absolute;
         top: 10px;

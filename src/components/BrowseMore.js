@@ -2,10 +2,11 @@ import React from "react";
 import Line from "./Line";
 
 const BrowseMore = props => {
+  const { getMoreResults, isMoreItems } = props
   return (
     <div className="potfolio__box box">
       <Line></Line>
-      <p className="portfolio__btn" onClick={props.getMoreResults}>
+      <p className={isMoreItems ? "portfolio__btn" : "portfolio__btn portfolio__btn-disabled"} onClick={getMoreResults}>
         BROWSE MORE
       </p>
     </div>
