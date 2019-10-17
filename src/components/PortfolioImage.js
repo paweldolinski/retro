@@ -9,14 +9,14 @@ const PortfolioImage = ({ moreItems, filteredData, limitTags, handleOpen }) => {
 			.map(image => {
 				return (
 					<div className="portfolio__portfolio-item item" key={image.id}>
-						<div className="portfolio__image" onClick={() => handleOpen(image.largeImageURL)}>
-							<img src={image.largeImageURL} alt="" />
+						<div className="portfolio__wrapper-image" onClick={() => handleOpen(image.largeImageURL)}>
+							<img className="portfolio__image" src={image.largeImageURL} alt="" />
 						</div>
 						<div className="portfolio__caption">
 							<div className="portfolio__caption-icon">
 								<img src={require("../assets/img/portfolio-icons/icons_542.png")} alt={image.tags} />
 							</div>
-							<p>{limitTags(image.tags)}</p>
+							<p className="portfolio__caption-tags"> {limitTags(image.tags)}</p>
 						</div>
 					</div>
 				);

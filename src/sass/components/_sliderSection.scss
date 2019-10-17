@@ -3,19 +3,11 @@
 
     &__box {
         padding: 15px 0;
-        color: #f7ebd8;
+        color: $beige-color;
         text-align: center;
-
-        h2 {
-            padding: 5px 0;
-        }
 
         @media (max-width:900px) {
             font-size: 10px;
-        }
-
-        @media (max-width:400px) {
-            line-height: 22px;
         }
     }
 
@@ -27,16 +19,23 @@
         padding: 15px 0;
     }
 
+    &__subtitle {
+        padding: 5px 0;
+
+        @media (max-width:400px) {
+            line-height: 22px;
+        }
+    }
+
     &__slider-wrapper {
         padding: 10px;
         padding-bottom: 20px;
         background: white;
-        color: #383a3c;
+        color: $black-color;
         text-align: center;
         max-width: 830px;
         position: relative;
         overflow: hidden;
-
 
         @media (max-width:900px) {
             width: 400px;
@@ -61,22 +60,24 @@
     &__next-button {
         right: -2px;
         top: 40%;
+    }
 
-        img {
-            width: 55%;
-            margin-left: 3px;
-        }
+    &__prev-button-image {
+        width: 55%;
+        margin-left: 8px;
     }
 
     &__prev-button {
         left: -2px;
         top: 40%;
 
-        img {
-            width: 55%;
-            margin-left: 8px;
-        }
     }
+
+    &__next-button-image {
+        width: 55%;
+        margin-left: 8px;
+    }
+
 }
 
 .slick-slider {

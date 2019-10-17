@@ -7,18 +7,18 @@ const Contact = () => {
       <div className="container">
         <div className="contact__box box">
           <div className="contact__box title">
-            <h1>CONTACT ME</h1>
+            <h1 className="contact__title">CONTACT ME</h1>
             <Separator></Separator>
             <p>I'LL BE GLAD TO ANSWER YOUR QUESTIONS!</p>
           </div>
         </div>
         <div className="contact__box box">
           <form className="contact__form">
-            <input type="text" name="name" placeholder="Name" />
-            <input type="text" name="mail" placeholder="e-mail" />
-            <input type="text" name="subject" placeholder="Subject" />
-            <textarea type="text" name="message" placeholder="Message" />
-            <button type="submit">Send Message</button>
+            <input className="contact__input" type="text" name="name" placeholder="Name" />
+            <input className="contact__input" type="text" name="mail" placeholder="e-mail" />
+            <input className="contact__input" type="text" name="subject" placeholder="Subject" />
+            <textarea className="contact__textarea" type="text" name="message" placeholder="Message" />
+            <button className="contact__btn" type="submit">Send Message</button>
           </form>
         </div>
         <div className="contact__box box">

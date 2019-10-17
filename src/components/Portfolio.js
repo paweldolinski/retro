@@ -91,7 +91,7 @@ class Portfolio extends Component {
           </div>
           <div className="potfolio__box box">
             <div className="portfolio__filters">
-              <p>Filter by</p>
+              <p className="portfolio__filters-title">Filter by</p>
               <ul className="portfolio__filters-list">
                 <TagsList filterData={this.filterData} />
               </ul>

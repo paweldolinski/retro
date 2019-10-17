@@ -1,0 +1,91 @@
+.contact {
+    background: url(../../assets/img/dark-bc.png);
+    color: $beige-color;
+
+
+    &__title {
+        text-shadow: #636363 2px 2px 0px, $beige-color 4px 4px 0px;
+        color: $beige-color;
+    }
+
+    &__form {
+        width: 400px;
+        margin-bottom: 70px;
+
+        @media (max-width:$screen-sm) {
+            width: 340px;
+        }
+
+        @media (max-width:$screen-xs) {
+            width: 290px;
+        }
+    }
+
+    &__input,
+    &__textarea,
+    &__btn {
+        margin: 5px auto;
+        border: none;
+        border-radius: 4px;
+        font-family: "Roboto-Regular"
+    }
+
+    &__input,
+    &__textarea {
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    &__textarea {
+        height: 130px;
+    }
+
+    &__btn {
+        background: $beige-color;
+        font-family: 'Roboto-Bold';
+        color: #383a3c;
+        transition: 0.3;
+
+        &:hover {
+            background: $black-color;
+            color: $beige-color;
+            transition: 0.3;
+            cursor: pointer;
+        }
+    }
+
+    &__icons-wrapper {
+        display: flex;
+        justify-content: center;
+        justify-items: center;
+    }
+
+    &__icon {
+        width: 80px;
+        transition: 0.2s;
+        transform: scale(0.9);
+
+        &:hover {
+            transform: scale(1.1);
+            transition: 0.2s;
+            cursor: pointer;
+        }
+
+        @media (max-width:$screen-sm) {
+            width: 50px;
+            margin: 5px;
+        }
+    }
+
+    .line {
+        background: $beige-color;
+    }
+
+    .separator {
+
+        &:after,
+        &:before {
+            background: $beige-color;
+        }
+    }
+}

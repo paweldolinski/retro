@@ -65,22 +65,23 @@ class SliderSection extends Component {
                 onClick={this.previous}
               >
                 <img
+                  className="sliderSection__prev-button-image"
                   src={require("../assets/img/left-thin-chevron.png")}
                   alt="previous"
                 />
               </div>
               <div className="sliderSection__next-button" onClick={this.next}>
-                <img
+                <img className="sliderSection__next-button-image"
                   src={require("../assets/img/right-thin-chevron.png")}
                   alt="next"
                 />
               </div>
-              <h2>KODAK CAMERA</h2>
+              <h2 className="sliderSection__subtitle">KODAK CAMERA</h2>
             </div>
           </div>
           <div className="sliderSection__box">
-            <h2>“HELLO, I AM JOHN DOE</h2>
-            <h2>WELCOME TO RETRO, MY WONDERFUL THEME!”</h2>
+            <h2 className="sliderSection__subtitle" >“HELLO, I AM JOHN DOE</h2>
+            <h2 className="sliderSection__subtitle" >WELCOME TO RETRO, MY WONDERFUL THEME!”</h2>
           </div>
         </div>
       </section>

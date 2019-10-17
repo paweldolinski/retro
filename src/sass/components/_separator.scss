@@ -5,10 +5,6 @@
     position: relative;
     font-size: 22px;
 
-    p {
-        line-height: 22px;
-    }
-
     &:after {
         content: '';
         height: 2px;
@@ -32,4 +28,9 @@
         transform: translateY(-50%);
         margin-left: 10px;
     }
+
+    &__text {
+        line-height: 22px;
+    }
+
 }

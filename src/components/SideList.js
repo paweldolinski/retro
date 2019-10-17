@@ -11,16 +11,16 @@ const SideList = props => {
       </AnchorLink>
       <ul>
         <AnchorLink href="#about-me">
-          <li onClick={props.sideListToggleHandler} >ABOUT ME</li>
+          <li className="side-list__item" onClick={props.sideListToggleHandler} >ABOUT ME</li>
         </AnchorLink>
         <AnchorLink href="#portfolio">
-          <li onClick={props.sideListToggleHandler} >PORTFOLIO</li>
+          <li className="side-list__item" onClick={props.sideListToggleHandler} >PORTFOLIO</li>
         </AnchorLink>
         <AnchorLink href="#my-blog">
-          <li onClick={props.sideListToggleHandler} >MY BLOG</li>
+          <li className="side-list__item" onClick={props.sideListToggleHandler} >MY BLOG</li>
         </AnchorLink>
         <AnchorLink href="#contact">
-          <li onClick={props.sideListToggleHandler} >CONTACT ME</li>
+          <li className="side-list__item" onClick={props.sideListToggleHandler} >CONTACT ME</li>
         </AnchorLink>
       </ul>
     </nav>
