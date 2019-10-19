@@ -11,17 +11,17 @@ const Nav = props => {
         <AnchorLink offset="70" href="#portfolio">
           <li className="nav__item">PORTFOLIO</li>
         </AnchorLink>
-        <AnchorLink offset="70" href="#top">
-          <li
-            className={
-              props.isScrolled
-                ? "nav__item--logo scale-down"
-                : "nav__item--logo"
-            }
-          >
+        <li
+          className={
+            props.isScrolled
+              ? "nav__item--logo scale-down"
+              : "nav__item--logo"
+          }
+        >
+          <AnchorLink offset="70" href="#top">
             <img src={require("../assets/img/logo.png")} alt="logo" />
-          </li>
-        </AnchorLink>
+          </AnchorLink>
+        </li>
         <AnchorLink offset="70" href="#my-blog">
           <li className="nav__item">MY BLOG</li>
         </AnchorLink>

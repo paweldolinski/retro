@@ -1,6 +1,6 @@
 .about {
     background: url(../../assets/img/bright-bc_03.png);
-    color: #3a3a3a;
+    color: $black-color;
 
     &__wrapper {
         display: flex;
@@ -15,6 +15,15 @@
         &:last-child {
             margin-bottom: 0;
         }
+
+        @media (max-width:$screen-lg) {
+            width: 47%;
+
+        }
+
+        @media (max-width:$screen-md) {
+            width: auto
+        }
     }
 
     &__item-subtitle {
@@ -28,24 +37,12 @@
         font-size: 12.6px;
     }
 
-    &__item-text--bold {
-        font-family: 'Roboto-Bold'
-    }
-
-    &__item-text--underline {
-        text-decoration: underline;
-    }
-
-    &__item--text--italic {
-        font-style: italic;
-    }
-
     &__item-wrapper {
         display: flex;
 
-        @media (max-width:900px) {
+        @media (max-width:$screen-lg) {
             flex-wrap: wrap;
-
+            justify-content: center;
         }
     }
 

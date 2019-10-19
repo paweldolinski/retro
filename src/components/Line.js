@@ -1,7 +1,7 @@
 import React from "react";
 
-const Line = () => {
-  return <div className="line"></div>;
+const Line = ({ className }) => {
+  return <div className={className}></div>;
 };
 
 export default Line;

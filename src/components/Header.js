@@ -9,29 +9,32 @@ class Header extends Component {
   };
 
   sideListToggleHandler = () => {
+
     this.setState(prevState => {
       return { sideListOpen: !prevState.sideListOpen };
     });
-  };
+  }
 
   render() {
     const { sideListOpen } = this.state;
 
     return (
-      <header>
+      <header id="top">
         <div
           className={sideListOpen ? "back-drop" : null}
-          onClick={this.sideListToggleHandler}
-        ></div>
+        >
+        </div>
         <ToggleButton
           click={this.sideListToggleHandler}
           sideListOpen={sideListOpen}
-        ></ToggleButton>
+        >
+        </ToggleButton>
         <Nav isScrolled={this.props.isScrolled}></Nav>
         <SideList
           sideListToggleHandler={this.sideListToggleHandler}
           sideListOpen={sideListOpen}
-        ></SideList>
+        >
+        </SideList>
       </header>
     );
   }

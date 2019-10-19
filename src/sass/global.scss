@@ -4,6 +4,7 @@ body {
     overflow-x: hidden;
     overflow-y: scroll;
     margin: auto;
+    font-family: 'Bazar';
 
     @media(max-width: 1000px) {
         padding-top: 0px;
@@ -14,112 +15,9 @@ h1 {
     font-size: 81px;
     text-shadow: #ffffff 2px 2px 0px, #484a4d 4px 4px 0px;
     margin: 8px auto;
-    color: #3a3a3a
-}
+    color: #3a3a3a;
 
-.section {
-    position: relative;
-    padding: 28px 0;
-
-    &:after {
-        content: '';
-        display: block;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        height: 10px;
-        width: 100%;
-        border-top: dotted gray 1px;
-        opacity: 0.5;
+    @media (max-width:450px) {
+        font-size: 50px
     }
-
-    &:before {
-        content: '';
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 10px;
-        width: 100%;
-        border-bottom: dotted gray 1px;
-        opacity: 0.5;
-        transition: 0.5s
-    }
-
-    &.transform {
-        &:before {
-            transform: translateY(-30px) !important;
-            transition: 0.5s
-        }
-    }
-
-}
-
-.container {
-    padding: 0 20px;
-    width: 100%;
-    margin: auto;
-    box-sizing: border-box;
-
-    @media screen and (min-width: 768px) {
-        width: 750px;
-    }
-
-    @media screen and (min-width: 992px) {
-        width: 970px
-    }
-
-    @media screen and (min-width:1200px) {
-        width: 1170px
-    }
-
-    @media screen and (min-width:1600px) {
-        width: 1570px
-    }
-
-}
-
-.title,
-.box {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-}
-
-.title {
-    margin-bottom: 35px;
-
-    p {
-        font-family: 'Oswald-Regular', sans-serif;
-        text-align: center;
-
-        @media (max-width:450px) {
-            font-size: 14px;
-        }
-    }
-
-    h1 {
-        @media (max-width:450px) {
-            font-size: 50px
-        }
-    }
-}
-
-.item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 18px;
-}
-
-.back-drop {
-    position: fixed;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 100;
-    background: rgba(0, 0, 0, 0.4);
-
 }
