@@ -1,29 +1,30 @@
 import React from 'react';
 import Line from "./Line";
-import image from "../assets/img/blog-image.png"
+import Constants from "../data/Constants"
 
 const BlogItem = () => {
+  const { blogItem } = Constants
   return (
-    <div className="blog__item">
-      <div className="blog__wrapper-img">
-        <img className="blog__img" src={image} alt="microphone"></img>
-      </div>
-      <div className="blog__item-text">
+    <React.Fragment>
+      {blogItem.map((item, index) => {
+        return (
+          <div className="blog__item" key={index}>
+            <div className="blog__wrapper-img">
+              <img className="blog__img" src={item.img} alt="/"></img>
+            </div>
+            <div className="blog__item-text">
+              <h2 className="blog__item-title">{item.title}</h2>
+              <p className="blog__item-date"> {item.date}</p>
+              <Line className={'line-left'} />
+              <div className="blog__item-article">{item.article}</div>
+            </div>
+          </div>
+        )
+      })}
+    </React.Fragment>
 
-        <h2 className="blog__item-title">The magic wheel</h2>
-        <p className="blog__item-date"> JULY 21 // ADMIN // FUN, TRAVEL, TRENDS</p>
-        <Line></Line>
 
-        <div className="blog__item-article">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Consequuntur quia adipisci non voluptate aut tempore aspernatur
-          ut odio, itaque repellendus iusto. Lorem ipsum dolor sit amet
-          consectetur adipisicing elit. Voluptate dolores magni ad
-          voluptatem corporis repudiandae sunt, laboriosam culpa maxime
-          adipisci ipsa!
-         </div>
-      </div>
-    </div>
+
   );
 }
 

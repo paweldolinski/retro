@@ -15,10 +15,9 @@
     &.nav-height {
         height: 87px;
         transition: 0.5s;
-
     }
 
-    @media (max-width:$screen-lg) {
+    @media (max-width:1000px) {
         display: none;
     }
 
@@ -51,7 +50,7 @@
         padding: 0px 40px;
 
         &:hover {
-            color: black
+            color: $black-color
         }
     }
 
@@ -63,7 +62,6 @@
         transition: 0.5s;
         position: relative;
         z-index: 100;
-
 
         &.scale-down {
             transform: scale(0.7);

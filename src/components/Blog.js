@@ -11,19 +11,15 @@ const Blog = () => {
           <div className="blog__box title">
             <h1>MY BLOG</h1>
             <Separator></Separator>
-            <p>NEWS FROM MY HOUSE</p>
+            <p className="title__subtitle">NEWS FROM MY HOUSE</p>
           </div>
         </div>
         <div className="blog__box box">
-          <BlogItem></BlogItem>
-          <BlogItem></BlogItem>
-          <BlogItem></BlogItem>
-          <BlogItem></BlogItem>
-          <BlogItem></BlogItem>
+          <BlogItem />
         </div>
         <div className="blog__box box">
           <div className="blog__btn">
-            <Line></Line>
+            <Line className={"line"} />
             <p>SHOW ALL POSTS</p>
           </div>
         </div>

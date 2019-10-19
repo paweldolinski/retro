@@ -55,6 +55,7 @@
         position: absolute;
         display: flex;
         align-items: center;
+        cursor: pointer;
     }
 
     &__next-button {
@@ -70,14 +71,12 @@
     &__prev-button {
         left: -2px;
         top: 40%;
-
     }
 
     &__next-button-image {
         width: 55%;
         margin-left: 8px;
     }
-
 }
 
 .slick-slider {

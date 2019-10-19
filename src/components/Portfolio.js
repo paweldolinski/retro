@@ -86,7 +86,7 @@ class Portfolio extends Component {
             <div className="portfolio__title title">
               <h1>PORTFOLIO</h1>
               <Separator></Separator>
-              <p>SIMPLICITY IS THE ULTIMATE SOPHISTICATION</p>
+              <p className="title__subtitle">SIMPLICITY IS THE ULTIMATE SOPHISTICATION</p>
             </div>
           </div>
           <div className="potfolio__box box">

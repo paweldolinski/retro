@@ -21,7 +21,7 @@
 
         }
 
-        @media (max-width:$screen-sm) {
+        @media (max-width:$screen-md) {
             width: auto
         }
     }
@@ -43,7 +43,6 @@
         @media (max-width:$screen-lg) {
             flex-wrap: wrap;
             justify-content: center;
-
         }
     }
 

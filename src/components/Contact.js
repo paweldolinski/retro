@@ -1,7 +1,10 @@
 import React from "react";
 import Separator from "./Separator";
 import Line from "./Line";
+import Constants from "../data/Constants"
+
 const Contact = () => {
+  const { contactIcons } = Constants
   return (
     <section className="contact section" id="contact">
       <div className="container">
@@ -9,7 +12,7 @@ const Contact = () => {
           <div className="contact__box title">
             <h1 className="contact__title">CONTACT ME</h1>
             <Separator></Separator>
-            <p>I'LL BE GLAD TO ANSWER YOUR QUESTIONS!</p>
+            <p className="title__subtitle">I'LL BE GLAD TO ANSWER YOUR QUESTIONS!</p>
           </div>
         </div>
         <div className="contact__box box">
@@ -23,38 +26,16 @@ const Contact = () => {
         </div>
         <div className="contact__box box">
           <h2>I AM SOCIAL</h2>
-          <Line />
+          <Line className={"line"} />
           <div className="contact__icons-wrapper">
-            <div className="contact__icon">
-              <img
-                src={require("../assets/img/contact-icons/twitter.png")}
-                alt="/"
-              />
-            </div>
-            <div className="contact__icon">
-              <img
-                src={require("../assets/img/contact-icons/facebook.png")}
-                alt="/"
-              />
-            </div>
-            <div className="contact__icon">
-              <img
-                src={require("../assets/img/contact-icons/google.png")}
-                alt="/"
-              />
-            </div>
-            <div className="contact__icon">
-              <img
-                src={require("../assets/img/contact-icons/media_10.png")}
-                alt="/"
-              />
-            </div>
-            <div className="contact__icon">
-              <img
-                src={require("../assets/img/contact-icons/linkedin.png")}
-                alt="/"
-              />
-            </div>
+            {contactIcons.map((contact, index) => {
+              return <div className="contact__icon" key={index}>
+                <img
+                  src={contact.img}
+                  alt={contact.alt}
+                />
+              </div>
+            })}
           </div>
         </div>
       </div>

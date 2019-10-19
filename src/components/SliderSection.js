@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
+import Constants from '../data/Constants'
+import SliderBtn from './SliderBtn'
 
 class SliderSection extends Component {
   next = () => {
@@ -17,6 +19,7 @@ class SliderSection extends Component {
       slidesToShow: 1,
       slidesToScroll: 1
     };
+    const { sliderImages } = Constants
     return (
       <section
         className={
@@ -41,41 +44,21 @@ class SliderSection extends Component {
           <div className="sliderSection__box">
             <div className="sliderSection__slider-wrapper">
               <Slider ref={c => (this.slider = c)} {...settings}>
-                <div className="sliderSection__slider-item">
-                  <img
-                    src={require("../assets/img/slider/img1.png")}
-                    alt="slider amplifier"
-                  />
-                </div>
-                <div className="sliderSection__slider-item">
-                  <img
-                    src={require("../assets/img/slider/img2.png")}
-                    alt="slider analogue"
-                  />
-                </div>
-                <div className="sliderSection__slider-item">
-                  <img
-                    src={require("../assets/img/slider/img3.png")}
-                    alt="slider music"
-                  />
-                </div>
+                {sliderImages.map((image, index) => {
+                  return (<div className="sliderSection__slider-item" key={index}>
+                    <img src={image.img} alt={image.alt} />
+                  </div>)
+                })}
               </Slider>
-              <div
-                className="sliderSection__prev-button"
-                onClick={this.previous}
-              >
-                <img
-                  className="sliderSection__prev-button-image"
-                  src={require("../assets/img/left-thin-chevron.png")}
-                  alt="previous"
-                />
-              </div>
-              <div className="sliderSection__next-button" onClick={this.next}>
-                <img className="sliderSection__next-button-image"
-                  src={require("../assets/img/right-thin-chevron.png")}
-                  alt="next"
-                />
-              </div>
+              <SliderBtn className={"sliderSection__prev-button"}
+                img={require("../assets/img/left-thin-chevron.png")}
+                alt={"previous"} previous={this.previous}
+              />
+              <SliderBtn className={"sliderSection__next-button"}
+                img={require("../assets/img/right-thin-chevron.png")}
+                alt={"previous"}
+                next={this.next}
+              />
               <h2 className="sliderSection__subtitle">KODAK CAMERA</h2>
             </div>
           </div>
