@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+// import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
-import Test from "./test"
+import LightBox from "./LightBox"
 
 class PortfolioItem extends Component {
   constructor(props) {
@@ -16,14 +17,14 @@ class PortfolioItem extends Component {
     this.setState({
       isOpen: true,
       imagePopup
-    })
+    }, () => console.log(this.state.isOpen))
 
   };
 
   handleClose = () => {
     this.setState({
       isOpen: false,
-    })
+    }, () => console.log(this.state.isOpen))
   };
 
   limitTags = title => {
@@ -34,21 +35,17 @@ class PortfolioItem extends Component {
       .join(", ");
     return newTitle;
   };
-  componentDidMount() {
-    if (this.state.isOpen) {
-      document.body.style.overflow = 'hidden';
-    }
-  }
-  componentDidUpdate() {
+  componentDidUpdate(prevState) {
 
     if (this.state.isOpen) {
       document.body.style.overflowY = 'hidden';
 
     } else {
       document.body.style.overflowY = 'scroll';
-    }
-  }
 
+    }
+
+  }
   render() {
     const { id, tags, webformatURL } = this.props;
     const { imagePopup, isOpen } = this.state
@@ -58,7 +55,7 @@ class PortfolioItem extends Component {
           <img className="portfolio__image" src={webformatURL} alt="" />
         </div>
         {isOpen && (
-          <Test image={imagePopup} close={this.handleClose} tags={tags} isOpen={isOpen} />
+          <LightBox image={imagePopup} close={this.handleClose} tags={tags} isOpen={isOpen} />
         )}
         <div className="portfolio__caption">
           <div className="portfolio__caption-icon">
