@@ -11,11 +11,10 @@ class Portfolio extends Component {
     filteredData: [],
     moreItems: 8,
     isMoreItems: true,
-
+    images: []
   };
 
   filterData = (tag) => {
-
     this.setState({
       filteredData: this.state.data.filter(image =>
         image.tags.includes(tag)
@@ -67,18 +66,21 @@ class Portfolio extends Component {
       .then(data => {
         this.setState({
           data: data.hits,
-          filteredData: data.hits
+          filteredData: data.hits,
+          images: data.hits.map(img => img.largeImageURL)
         });
       })
       .catch(err => console.log(err));
   };
 
   componentDidMount() {
+
     this.getData();
+
   }
 
   render() {
-    const { data, filteredData, value, moreItems, isMoreItems } = this.state
+    const { filteredData, moreItems, isMoreItems } = this.state
     return (
       <section className="portfolio section" id="portfolio">
         <div className="container">
@@ -97,12 +99,11 @@ class Portfolio extends Component {
               </ul>
             </div>
           </div>
-          <PortfolioItem
-            filteredData={filteredData}
-            data={data}
-            value={value}
-            moreItems={moreItems}
-          ></PortfolioItem>
+          <div className="portfolio__portfolio">
+            {filteredData.slice(0, moreItems).map(item => {
+              return <PortfolioItem key={item.id} images={this.state.images} {...item} />
+            })}
+          </div>
         </div>
         <BrowseMore getMoreResults={this.getMoreResults} isMoreItems={isMoreItems}></BrowseMore>
       </section>

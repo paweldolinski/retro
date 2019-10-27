@@ -9,7 +9,7 @@ import Contact from "./components/Contact";
 
 class App extends Component {
   state = {
-    isScrolled: false
+    isScrolled: false,
   };
   scrollHandler = e => {
     if (window.scrollY > 100) {

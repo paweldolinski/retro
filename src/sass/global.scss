@@ -11,6 +11,11 @@ body {
     }
 }
 
+body.light-box {
+    display: none;
+    overflow-y: hidden;
+}
+
 h1 {
     font-size: 81px;
     text-shadow: #ffffff 2px 2px 0px, #484a4d 4px 4px 0px;

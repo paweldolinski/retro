@@ -1,10 +1,10 @@
 .contact {
     background: url(../../assets/img/dark-bc.png);
-    color: $beige-color;
+    color: $color-beige;
 
     &__title {
-        text-shadow: #636363 2px 2px 0px, $beige-color 4px 4px 0px;
-        color: $beige-color;
+        text-shadow: #636363 2px 2px 0px, $color-beige 4px 4px 0px;
+        color: $color-beige;
     }
 
     &__form {
@@ -40,14 +40,14 @@
     }
 
     &__btn {
-        background: $beige-color;
+        background: $color-beige;
         font-family: 'Roboto-Bold';
         color: #383a3c;
         transition: 0.3;
 
         &:hover {
-            background: $black-color;
-            color: $beige-color;
+            background: $color-black;
+            color: $color-beige;
             transition: 0.3;
             cursor: pointer;
         }
@@ -77,14 +77,14 @@
     }
 
     .line {
-        background: $beige-color;
+        background: $color-beige;
     }
 
     .separator {
 
         &:after,
         &:before {
-            background: $beige-color;
+            background: $color-beige;
         }
     }
 }
