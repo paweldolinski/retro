@@ -15,14 +15,14 @@ class PortfolioItem extends Component {
     this.setState({
       isOpen: true,
       imagePopup
-    }, () => console.log(this.state.isOpen))
+    })
 
   };
 
   handleClose = () => {
     this.setState({
       isOpen: false,
-    }, () => console.log(this.state.isOpen))
+    })
   };
 
   limitTags = title => {
@@ -34,16 +34,16 @@ class PortfolioItem extends Component {
     return newTitle;
   };
   componentDidUpdate(prevState) {
-
-    if (this.state.isOpen) {
-      document.body.style.overflowY = 'hidden';
-
-    } else {
-      document.body.style.overflowY = 'scroll';
-
+    if (this.state.isOpen !== prevState.isOpen) {
+      if (this.state.isOpen) {
+        document.body.style.overflowY = 'hidden';
+      } else {
+        document.body.style.overflowY = 'scroll';
+      }
     }
-
   }
+
+
   render() {
     const { id, tags, webformatURL } = this.props;
     const { imagePopup, isOpen } = this.state
