@@ -1,31 +1,29 @@
 import React, { Component } from "react";
-import Dialog from "@material-ui/core/Dialog";
-import PortfolioImage from "./PortfolioImage";
+import 'react-image-lightbox/style.css';
+import Test from "./test"
 
 class PortfolioItem extends Component {
-  state = {
-    open: false,
-    filteredData: [],
-    currentImg: "",
-    moreItems: 8
+  constructor(props) {
+    super(props)
+    this.state = {
+      isOpen: false,
+      imagePopup: ''
+    };
+  }
+
+
+  handleOpen = (imagePopup) => {
+    this.setState({
+      isOpen: true,
+      imagePopup
+    })
+
   };
 
-  handleOpen = img => {
+  handleClose = () => {
     this.setState({
-      open: true,
-      currentImg: img
-    });
-  };
-
-  handleClose = e => {
-    this.setState({
-      open: false
-    });
-    if (e.target.tagName === "IMG") {
-      this.setState({
-        open: true
-      });
-    }
+      isOpen: false,
+    })
   };
 
   limitTags = title => {
@@ -36,23 +34,37 @@ class PortfolioItem extends Component {
       .join(", ");
     return newTitle;
   };
+  componentDidMount() {
+    if (this.state.isOpen) {
+      document.body.style.overflow = 'hidden';
+    }
+  }
+  componentDidUpdate() {
+
+    if (this.state.isOpen) {
+      document.body.style.overflowY = 'hidden';
+
+    } else {
+      document.body.style.overflowY = 'scroll';
+    }
+  }
 
   render() {
-    const { currentImg, open } = this.state
+    const { id, tags, webformatURL } = this.props;
+    const { imagePopup, isOpen } = this.state
     return (
-      <div className="portfolio__portfolio">
-        <PortfolioImage
-          filteredData={this.props.filteredData}
-          moreItems={this.props.moreItems}
-          limitTags={this.limitTags}
-          handleOpen={this.handleOpen} />
-        <div className="portfolio__after-click" onClick={this.handleClose}>
-          <Dialog open={open}>
-            <div className="portfolio__close-icon" onClick={this.handleClose}>
-              &times;
-            </div>
-            <img src={currentImg} alt="" />
-          </Dialog>
+      <div className="portfolio__portfolio-item item" key={id}>
+        <div className="portfolio__wrapper-image" onClick={() => { this.handleOpen(webformatURL) }}>
+          <img className="portfolio__image" src={webformatURL} alt="" />
+        </div>
+        {isOpen && (
+          <Test image={imagePopup} close={this.handleClose} tags={tags} isOpen={isOpen} />
+        )}
+        <div className="portfolio__caption">
+          <div className="portfolio__caption-icon">
+            <img src={require("../assets/img/portfolio-icons/icons_542.png")} alt={tags} />
+          </div>
+          <p className="portfolio__caption-tags"> {this.limitTags(tags)}</p>
         </div>
       </div>
     );
